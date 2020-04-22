@@ -1,6 +1,6 @@
 import React from 'react';
 import {CSSTransition} from 'react-transition-group';
-import {TransitionDuration} from '../../types';
+import {TransitionDuration} from '../../utilities/types';
 import './FadeInScale.css';
 
 interface Props {

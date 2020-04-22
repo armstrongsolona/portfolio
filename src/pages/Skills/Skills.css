@@ -1,0 +1,50 @@
+.Skills {
+  display: grid;
+  grid-template-rows: auto;
+  margin-top: 3rem;
+}
+
+.SoftSkillsWrapper {
+  padding-top: 24px;
+  background: #0490aa;
+}
+
+.SoftSkills {
+  text-align: left;
+  margin-top: 24px;
+}
+
+.SoftSkillsColumn {
+  display: grid;
+  grid-template-rows: auto;
+}
+
+@media screen and (max-width: 379px) {
+  .Skills {
+    grid-template-columns: 100%;
+  }
+
+  .SoftSkillsColumn {
+    grid-template-columns: 100%;
+  }
+}
+
+@media screen and (min-width: 380px) and (max-width: 799px) {
+  .Skills {
+    grid-template-columns: repeat(2, 50%);
+  }
+
+  .SoftSkillsColumn {
+    grid-template-columns: 100%;
+  }
+}
+
+@media screen and (min-width: 800px) {
+  .Skills {
+    grid-template-columns: repeat(4, 25%);
+  }
+
+  .SoftSkillsColumn {
+    grid-template-columns: 50% 50%;
+  }
+}

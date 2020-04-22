@@ -1,6 +1,6 @@
 import React from 'react';
 import {CSSTransition} from 'react-transition-group';
-import {TransitionDuration, SlideDirection} from '../../types';
+import {TransitionDuration, SlideDirection} from '../../utilities/types';
 import './FadeInSlide.css';
 
 interface Props {
