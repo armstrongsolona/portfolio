@@ -1,16 +1,18 @@
 html {
+  margin: 0px;
+  padding: 0px;
   height: 100%;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 body {
   margin: 0;
   padding: 0;
-  font-family: 'Nanum Gothic', sans-serif;
+  font-family: 'Montserrat', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   height: 100%;
-  overflow-x: hidden;
-  background: #f4f4f4;
 }
 
 code {
@@ -24,4 +26,10 @@ ul {
 
 li {
   margin-bottom: 0.3rem;
+}
+
+a {
+  text-decoration: none;
+  color: #fd7700;
+  font-weight: bold;
 }
