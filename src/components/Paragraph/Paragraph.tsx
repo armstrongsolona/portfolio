@@ -22,11 +22,11 @@ interface Props {
 }
 
 interface StyledProps {
-  paragraphCentered: boolean;
-  paragraphExtraSpace: boolean;
-  paragraphTextSize: ParagraphTextSize;
-  paragraphWidth: string;
-  paragraphMaxWidth: string;
+  styledCentered: boolean;
+  styledExtraSpace: boolean;
+  styledTextSize: ParagraphTextSize;
+  styledWidth: string;
+  styledMaxWidth: string;
 }
 
 function Paragraph({
@@ -36,30 +36,30 @@ function Paragraph({
   width = ParagraphWidth.Narrow,
   children,
 }: Props) {
-  let paragraphWidth;
-  let paragraphMaxWidth;
+  let styledWidth;
+  let styledMaxWidth;
 
   switch (width) {
     case ParagraphWidth.Narrow:
-      paragraphWidth = '60%';
-      paragraphMaxWidth = '37rem';
+      styledWidth = '60%';
+      styledMaxWidth = '37rem';
       break;
     case ParagraphWidth.Wide:
-      paragraphWidth = '80%';
-      paragraphMaxWidth = '50rem';
+      styledWidth = '80%';
+      styledMaxWidth = '50rem';
       break;
     default:
-      paragraphWidth = '100%';
-      paragraphMaxWidth = '100%';
+      styledWidth = '100%';
+      styledMaxWidth = '100%';
   }
 
   return (
     <ParagraphStyles
-      paragraphCentered={centered}
-      paragraphExtraSpace={extraSpace}
-      paragraphTextSize={textSize}
-      paragraphWidth={paragraphWidth}
-      paragraphMaxWidth={paragraphMaxWidth}
+      styledCentered={centered}
+      styledExtraSpace={extraSpace}
+      styledTextSize={textSize}
+      styledWidth={styledWidth}
+      styledMaxWidth={styledMaxWidth}
     >
       {children}
     </ParagraphStyles>
@@ -69,15 +69,15 @@ function Paragraph({
 const ParagraphStyles = styled.p<StyledProps>`
   margin: 0 auto 8px auto;
   text-align: left;
-  ${(props) => props.paragraphCentered && `text-align: center`};
-  ${(props) => props.paragraphExtraSpace && `margin: 1.4rem 0`};
-  ${(props) => props.paragraphTextSize === 'small' && `font-size: 0.9rem`};
-  ${(props) => props.paragraphTextSize === 'medium' && `font-size: 1rem`};
-  ${(props) => props.paragraphTextSize === 'medium' && `line-height: 1.5rem`};
-  ${(props) => props.paragraphTextSize === 'large' && `font-size: 1.2rem`};
-  ${(props) => props.paragraphTextSize === 'medium' && `line-height: 1.7rem`};
-  ${(props) => props.paragraphWidth && `width: ${props.paragraphWidth}`};
-  ${(props) => props.paragraphWidth && `max-width: ${props.paragraphMaxWidth}`};
+  ${(props) => props.styledCentered && `text-align: center`};
+  ${(props) => props.styledExtraSpace && `margin: 1.4rem 0`};
+  ${(props) => props.styledTextSize === 'small' && `font-size: 0.9rem`};
+  ${(props) => props.styledTextSize === 'medium' && `font-size: 1rem`};
+  ${(props) => props.styledTextSize === 'medium' && `line-height: 1.5rem`};
+  ${(props) => props.styledTextSize === 'large' && `font-size: 1.2rem`};
+  ${(props) => props.styledTextSize === 'medium' && `line-height: 1.7rem`};
+  ${(props) => props.styledWidth && `width: ${props.styledWidth}`};
+  ${(props) => props.styledWidth && `max-width: ${props.styledMaxWidth}`};
 `;
 
 export default Paragraph;

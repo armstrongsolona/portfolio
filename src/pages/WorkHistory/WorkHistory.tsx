@@ -8,7 +8,6 @@ import {library} from '@fortawesome/fontawesome-svg-core';
 import {faExternalLinkAlt} from '@fortawesome/free-solid-svg-icons';
 library.add(faExternalLinkAlt);
 import workHistoryText from '../../data/work-history-text';
-import './WorkHistory.css';
 
 interface Props {}
 interface State {
@@ -82,15 +81,8 @@ class WorkHistory extends Component<Props, State> {
 
 const WorkHistoryWrapper = styled.section`
   margin: 10rem auto 6rem auto;
+  width: 80%;
   max-width: 50rem;
-
-  @media screen and (max-width: 699px) {
-    width: 100%;
-  }
-
-  @media screen and (min-width: 700px) {
-    width: 80%;
-  }
 `;
 
 const WorkHistoryStyles = styled.div`

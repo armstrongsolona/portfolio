@@ -13,7 +13,6 @@ import Skills from './pages/Skills/Skills';
 import WorkHistory from './pages/WorkHistory/WorkHistory';
 import Contact from './pages/Contact/Contact';
 import HamburgerMenu from './components/HamburgerMenu/HamburgerMenu';
-import './App.css';
 
 function App() {
   const navigationItems = (

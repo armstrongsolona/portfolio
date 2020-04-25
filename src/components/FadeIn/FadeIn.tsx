@@ -1,46 +1,56 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
+import styled from 'styled-components';
 import {CSSTransition} from 'react-transition-group';
 import {TransitionDuration} from '../../utilities/types';
-import './FadeIn.css';
 
 interface Props {
   duration?: TransitionDuration;
   children: React.ReactNode;
 }
 
-interface State {
-  fadeIn: boolean;
+interface StyledProps {
+  styledDuration: TransitionDuration;
 }
 
-class FadeIn extends React.Component<Props, State> {
-  constructor(props: Props) {
-    super(props);
-    this.state = {fadeIn: false};
-  }
+function FadeIn(props: Props) {
+  const [fadeIn, setFadeIn] = useState(false);
 
-  componentDidMount() {
-    this.setState({fadeIn: true});
-  }
+  useEffect(() => {
+    setFadeIn(true);
+  });
 
-  render() {
-    const {duration = TransitionDuration.Slow, children} = this.props;
-    const {fadeIn} = this.state;
+  const {duration = TransitionDuration.Slow, children} = props;
 
-    const markup = <div key="key">{children}</div>;
-
-    const cssVariablesPrefix = '--FadeIn-';
-    const cssVariables: React.CSSProperties = {
-      [`${cssVariablesPrefix}duration`]: `${duration}ms`,
-    };
-
-    return (
-      <div className="FadeInWrapper" style={cssVariables}>
-        <CSSTransition in={fadeIn} timeout={duration} classNames="FadeIn">
-          {markup}
-        </CSSTransition>
-      </div>
-    );
-  }
+  return (
+    <FadeInWrapper>
+      <CSSTransition
+        in={fadeIn}
+        appear={fadeIn}
+        timeout={duration}
+        classNames="FadeIn"
+      >
+        <FadeInStyles styledDuration={duration}>{children}</FadeInStyles>
+      </CSSTransition>
+    </FadeInWrapper>
+  );
 }
+
+const FadeInWrapper = styled.div``;
+
+const FadeInStyles = styled.div<StyledProps>`
+  opacity: 0.01;
+
+  &.FadeIn-enter {
+    opacity: 0.01;
+  }
+
+  &.FadeIn-enter-done {
+    opacity: 1;
+    transition: opacity
+        ${(props) => props.styledDuration && props.styledDuration}ms ease-in,
+      transform ${(props) => props.styledDuration && props.styledDuration}ms
+        ease-in;
+  }
+`;
 
 export default FadeIn;

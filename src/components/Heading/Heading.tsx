@@ -14,10 +14,10 @@ interface Props {
 }
 
 interface StyledProps {
-  headingColor: string;
-  headingExtraSpace: boolean;
-  headingFontFamily: string;
-  headingFontWeight: string;
+  styledColor: string;
+  styledExtraSpace: boolean;
+  styledFontFamily: string;
+  styledFontWeight: string;
 }
 
 function Heading({color, element, extraSpace = false, font, children}: Props) {
@@ -66,10 +66,10 @@ function Heading({color, element, extraSpace = false, font, children}: Props) {
 
   return (
     <HeadingElement
-      headingColor={headingColor}
-      headingExtraSpace={extraSpace}
-      headingFontFamily={headingFontFamily}
-      headingFontWeight={headingFontWeight}
+      styledColor={headingColor}
+      styledExtraSpace={extraSpace}
+      styledFontFamily={headingFontFamily}
+      styledFontWeight={headingFontWeight}
     >
       {children}
     </HeadingElement>
@@ -79,57 +79,57 @@ function Heading({color, element, extraSpace = false, font, children}: Props) {
 const Heading1 = styled.h1<StyledProps>`
   font-size: 8rem;
   margin-bottom: 0.5rem;
-  ${(props) => props.headingColor && `color: ${props.headingColor}`};
+  ${(props) => props.styledColor && `color: ${props.styledColor}`};
   ${(props) =>
-    props.headingFontFamily && `font-family: ${props.headingFontFamily}`};
-  ${(props) => props.headingFontFamily === 'Montez' && `margin-top: 0`};
+    props.styledFontFamily && `font-family: ${props.styledFontFamily}`};
+  ${(props) => props.styledFontFamily === 'Montez' && `margin-top: 0`};
   ${(props) =>
-    props.headingFontWeight && `font-weight: ${props.headingFontWeight}`};
-  ${(props) => props.headingExtraSpace && `margin-top: 3rem`};
+    props.styledFontWeight && `font-weight: ${props.styledFontWeight}`};
+  ${(props) => props.styledExtraSpace && `margin-top: 3rem`};
 `;
 
 const Heading2 = styled.h2<StyledProps>`
   font-size: 2rem;
   margin-bottom: 0.5rem;
-  ${(props) => props.headingColor && `color: ${props.headingColor}`};
+  ${(props) => props.styledColor && `color: ${props.styledColor}`};
   ${(props) =>
-    props.headingFontFamily && `font-family: ${props.headingFontFamily}`};
+    props.styledFontFamily && `font-family: ${props.styledFontFamily}`};
   ${(props) =>
-    props.headingFontWeight && `font-weight: ${props.headingFontWeight}`};
-  ${(props) => props.headingExtraSpace && `margin-top: 3rem`};
+    props.styledFontWeight && `font-weight: ${props.styledFontWeight}`};
+  ${(props) => props.styledExtraSpace && `margin-top: 3rem`};
 `;
 
 const Heading3 = styled.h3<StyledProps>`
   font-size: 1.5rem;
   margin-bottom: 0.5rem;
-  ${(props) => props.headingColor && `color: ${props.headingColor}`};
+  ${(props) => props.styledColor && `color: ${props.styledColor}`};
   ${(props) =>
-    props.headingFontFamily && `font-family: ${props.headingFontFamily}`};
+    props.styledFontFamily && `font-family: ${props.styledFontFamily}`};
   ${(props) =>
-    props.headingFontWeight && `font-weight: ${props.headingFontWeight}`};
-  ${(props) => props.headingExtraSpace && `margin-top: 3rem`};
+    props.styledFontWeight && `font-weight: ${props.styledFontWeight}`};
+  ${(props) => props.styledExtraSpace && `margin-top: 3rem`};
 `;
 
 const Heading4 = styled.h4<StyledProps>`
   font-size: 1.4rem;
   margin-bottom: 0.5rem;
-  ${(props) => props.headingColor && `color: ${props.headingColor}`};
+  ${(props) => props.styledColor && `color: ${props.styledColor}`};
   ${(props) =>
-    props.headingFontFamily && `font-family: ${props.headingFontFamily}`};
+    props.styledFontFamily && `font-family: ${props.styledFontFamily}`};
   ${(props) =>
-    props.headingFontWeight && `font-weight: ${props.headingFontWeight}`};
-  ${(props) => props.headingExtraSpace && `margin-top: 3rem`};
+    props.styledFontWeight && `font-weight: ${props.styledFontWeight}`};
+  ${(props) => props.styledExtraSpace && `margin-top: 3rem`};
 `;
 
 const Heading5 = styled.h5<StyledProps>`
   font-size: 1.1rem;
   margin-bottom: 0.5rem;
-  ${(props) => props.headingColor && `color: ${props.headingColor}`};
+  ${(props) => props.styledColor && `color: ${props.styledColor}`};
   ${(props) =>
-    props.headingFontFamily && `font-family: ${props.headingFontFamily}`};
+    props.styledFontFamily && `font-family: ${props.styledFontFamily}`};
   ${(props) =>
-    props.headingFontWeight && `font-weight: ${props.headingFontWeight}`};
-  ${(props) => props.headingExtraSpace && `margin-top: 3rem`};
+    props.styledFontWeight && `font-weight: ${props.styledFontWeight}`};
+  ${(props) => props.styledExtraSpace && `margin-top: 3rem`};
 `;
 
 export default Heading;

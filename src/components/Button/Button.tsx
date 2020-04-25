@@ -2,23 +2,23 @@ import React from 'react';
 import styled from 'styled-components';
 import {COLORS} from '../../utilities/colors';
 
-export type ButtonSize = 'small' | 'medium' | 'large';
-export type ButtonColor = 'blue' | 'orange' | 'white';
+export type styledSize = 'small' | 'medium' | 'large';
+export type styledColor = 'blue' | 'orange' | 'white';
 
 interface Props {
-  size?: ButtonSize;
-  color?: ButtonColor;
+  size?: styledSize;
+  color?: styledColor;
   content: string;
   accessibilityLabel?: string;
   onClick?(): void;
 }
 
 interface StyledProps {
-  buttonBackground: string;
-  buttonBorder: string;
-  buttonColor: string;
-  buttonPadding: string;
-  buttonSize: string;
+  styledBackground: string;
+  styledBorder: string;
+  styledColor: string;
+  styledPadding: string;
+  styledSize: string;
 }
 
 function Button({
@@ -28,59 +28,59 @@ function Button({
   content,
   onClick,
 }: Props) {
-  let buttonPadding;
-  let buttonSize;
+  let styledPadding;
+  let styledSize;
 
   switch (size) {
     case 'small':
-      buttonPadding = '0.5rem';
-      buttonSize = '0.9rem';
+      styledPadding = '0.5rem';
+      styledSize = '0.9rem';
       break;
     case 'medium':
-      buttonPadding = '0.75rem';
-      buttonSize = '1.1rem';
+      styledPadding = '0.75rem';
+      styledSize = '1.1rem';
       break;
     case 'large':
-      buttonPadding = '0.75rem 1.4rem';
-      buttonSize = '1.4rem';
+      styledPadding = '0.75rem 1.4rem';
+      styledSize = '1.4rem';
     default:
-      buttonPadding = '0.75rem';
-      buttonSize = '1.1rem';
+      styledPadding = '0.75rem';
+      styledSize = '1.1rem';
   }
 
-  let buttonBackground;
-  let buttonBorder;
-  let buttonColor;
+  let styledBackground;
+  let styledBorder;
+  let styledColor;
 
   switch (color) {
     case 'blue':
-      buttonBackground = COLORS.Blue;
-      buttonBorder = 'none';
-      buttonColor = COLORS.White;
+      styledBackground = COLORS.Blue;
+      styledBorder = 'none';
+      styledColor = COLORS.White;
       break;
     case 'orange':
-      buttonBackground = COLORS.Orange;
-      buttonBorder = 'none';
-      buttonColor = COLORS.White;
+      styledBackground = COLORS.Orange;
+      styledBorder = 'none';
+      styledColor = COLORS.White;
       break;
     case 'white':
-      buttonBackground = COLORS.White;
-      buttonBorder = `1px solid ${COLORS.Grey}`;
-      buttonColor = COLORS.Black;
+      styledBackground = COLORS.White;
+      styledBorder = `1px solid ${COLORS.Grey}`;
+      styledColor = COLORS.Black;
       break;
     default:
-      buttonBackground = COLORS.White;
-      buttonBorder = `1px solid ${COLORS.Grey}`;
-      buttonColor = COLORS.Black;
+      styledBackground = COLORS.White;
+      styledBorder = `1px solid ${COLORS.Grey}`;
+      styledColor = COLORS.Black;
   }
 
   return (
     <ButtonStyles
-      buttonBackground={buttonBackground}
-      buttonBorder={buttonBorder}
-      buttonColor={buttonColor}
-      buttonPadding={buttonPadding}
-      buttonSize={buttonSize}
+      styledBackground={styledBackground}
+      styledBorder={styledBorder}
+      styledColor={styledColor}
+      styledPadding={styledPadding}
+      styledSize={styledSize}
       aria-label={accessibilityLabel}
       onClick={onClick}
     >
@@ -95,12 +95,13 @@ const ButtonStyles = styled.button<StyledProps>`
   font-weight: bold;
   font-family: 'Montserrat';
   cursor: pointer;
+
   ${(props) =>
-    props.buttonBackground && `background: ${props.buttonBackground}`};
-  ${(props) => props.buttonBorder && `border: ${props.buttonBorder}`};
-  ${(props) => props.buttonColor && `color: ${props.buttonColor}`};
-  ${(props) => props.buttonPadding && `padding: ${props.buttonPadding}`};
-  ${(props) => props.buttonSize && `font-size: ${props.buttonSize}`};
+    props.styledBackground && `background: ${props.styledBackground}`};
+  ${(props) => props.styledBorder && `border: ${props.styledBorder}`};
+  ${(props) => props.styledColor && `color: ${props.styledColor}`};
+  ${(props) => props.styledPadding && `padding: ${props.styledPadding}`};
+  ${(props) => props.styledSize && `font-size: ${props.styledSize}`};
 `;
 
 export default Button;
