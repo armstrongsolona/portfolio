@@ -1,5 +1,5 @@
 import React from 'react';
-import './Flex.css';
+import styled from 'styled-components';
 
 export type flexDirection = 'row' | 'row-reverse' | 'column' | 'column-reverse';
 export type flexWrap = 'nowrap' | 'wrap';
@@ -33,6 +33,14 @@ interface Props {
   children: React.ReactNode;
 }
 
+interface StyledProps {
+  styledFlexDirection?: flexDirection;
+  styledFlexWrap?: flexWrap;
+  styledJustifyContent?: justifyContent;
+  styledAlignItems?: alignItems;
+  styledAlignContent?: alignContent;
+}
+
 function Flex({
   flexDirection,
   flexWrap,
@@ -41,30 +49,33 @@ function Flex({
   alignContent,
   children,
 }: Props) {
-  const classNamePrefix = ' Flex-';
-  const classNameFlexDirection = flexDirection
-    ? `${classNamePrefix}FlexDirection--${flexDirection}`
-    : '';
-  const classNameFlexWrap = flexWrap
-    ? `${classNamePrefix}FlexWrap--${flexWrap}`
-    : '';
-  const classNameJustifyContent = justifyContent
-    ? `${classNamePrefix}JustifyContent--${justifyContent}`
-    : '';
-  const classNameAlignItems = alignItems
-    ? `${classNamePrefix}AlignItems--${alignItems}`
-    : '';
-  const classNameAlignContent = alignContent
-    ? `${classNamePrefix}AlignContent--${alignContent}`
-    : '';
-
   return (
-    <div
-      className={`Flex${classNameFlexDirection}${classNameFlexWrap}${classNameJustifyContent}${classNameAlignItems}${classNameAlignContent}`}
+    <FlexStyles
+      styledFlexDirection={flexDirection}
+      styledFlexWrap={flexWrap}
+      styledJustifyContent={justifyContent}
+      styledAlignItems={alignItems}
+      styledAlignContent={alignContent}
     >
       {children}
-    </div>
+    </FlexStyles>
   );
 }
+
+const FlexStyles = styled.div<StyledProps>`
+  display: flex;
+
+  ${(props) =>
+    props.styledFlexDirection &&
+    `flex-direction: ${props.styledFlexDirection}`};
+  ${(props) => props.styledFlexWrap && `flex-wrap: ${props.styledFlexWrap}`};
+  ${(props) =>
+    props.styledJustifyContent &&
+    `justify-content: ${props.styledJustifyContent}`};
+  ${(props) =>
+    props.styledAlignItems && `align-items: ${props.styledAlignItems}`};
+  ${(props) =>
+    props.styledAlignContent && `align-content: ${props.styledAlignContent}`};
+`;
 
 export default Flex;

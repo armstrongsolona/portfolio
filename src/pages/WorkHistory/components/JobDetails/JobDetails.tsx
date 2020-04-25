@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import Image, {ImageSize} from '../../../../components/Image/Image';
 import Heading from '../../../../components/Heading/Heading';
@@ -16,71 +16,65 @@ interface Props {
   buttons?: React.ReactNode;
 }
 
-interface State {}
+function JobDetails(props: Props) {
+  const {
+    current,
+    companyName,
+    role,
+    companyDescription,
+    tech,
+    tasks,
+    shipped,
+    imageSrc,
+    buttons,
+  } = props;
 
-class JobDetails extends Component<Props, State> {
-  render() {
-    const {
-      current,
-      companyName,
-      role,
-      companyDescription,
-      tech,
-      tasks,
-      shipped,
-      imageSrc,
-      buttons,
-    } = this.props;
+  const logoMarkup = imageSrc ? (
+    <JobDetailsLogo>
+      <Image size={ImageSize.Icon} src={imageSrc} alt={companyName} />
+    </JobDetailsLogo>
+  ) : null;
 
-    const logoMarkup = imageSrc ? (
-      <JobDetailsLogo>
-        <Image size={ImageSize.Icon} src={imageSrc} alt={companyName} />
-      </JobDetailsLogo>
-    ) : null;
+  const buttonsMarkup = buttons && <li>{buttons}</li>;
 
-    const buttonsMarkup = buttons && <li>{buttons}</li>;
+  const shippedMarkup = shipped.length ? (
+    <>
+      <Heading element="h5">
+        {current ? `What I will ship` : 'What I shipped'}
+      </Heading>
+      <JobDetailsShipped>{shipped.map(renderItems)}</JobDetailsShipped>
+    </>
+  ) : null;
 
-    console.log('shipped.length', shipped.length);
-
-    const shippedMarkup = shipped.length ? (
-      <>
-        <Heading element="h5">
-          {current ? `What I will ship` : 'What I shipped'}
-        </Heading>
-        <JobDetailsShipped>{shipped.map(this.renderItems)}</JobDetailsShipped>
-      </>
-    ) : null;
-
-    return (
-      <JobDetailsStyles>
-        <JobDetailsSummary>
-          {logoMarkup}
-          <JobDetailsText>
-            <JobDetailsRole>{role}</JobDetailsRole>
-            <JobDetailsCompanyName>{companyName}</JobDetailsCompanyName>
-            <JobDetailsCompanyDescription>
-              {companyDescription}
-            </JobDetailsCompanyDescription>
-            <Heading element="h5">Tech stack</Heading>
-            <JobDetailsStack>{tech.map(this.renderItems)}</JobDetailsStack>
-            <Heading element="h5">
-              {current ? `What I'm doing` : 'What I did'}
-            </Heading>
-            <JobDetailsTasks>
-              {tasks.map(this.renderItems)}
-              {buttonsMarkup}
-            </JobDetailsTasks>
-            {shippedMarkup}
-          </JobDetailsText>
-        </JobDetailsSummary>
-      </JobDetailsStyles>
-    );
-  }
-
-  renderItems = (item: any, index: number) => {
-    return <li key={index}>{item}</li>;
-  };
+  return (
+    <JobDetailsStyles>
+      <JobDetailsSummary>
+        {logoMarkup}
+        <JobDetailsText>
+          <JobDetailsRole>{role}</JobDetailsRole>
+          <JobDetailsCompanyName>{companyName}</JobDetailsCompanyName>
+          <JobDetailsCompanyDescription>
+            {companyDescription}
+          </JobDetailsCompanyDescription>
+          <Heading element="h5">Tech stack</Heading>
+          <JobDetailsStack>{tech.map(renderItems)}</JobDetailsStack>
+          <Heading element="h5">
+            {current ? `What I'm doing` : 'What I did'}
+          </Heading>
+          <JobDetailsTasks>
+            {tasks.map(renderItems)}
+            {buttonsMarkup}
+          </JobDetailsTasks>
+          {shippedMarkup}
+        </JobDetailsText>
+      </JobDetailsSummary>
+    </JobDetailsStyles>
+  );
 }
+
+const renderItems = (item: any, index: number) => {
+  return <li key={index}>{item}</li>;
+};
 
 const JobDetailsStyles = styled.div`
   padding: 2rem;

@@ -10,14 +10,14 @@ interface Props {
 }
 
 interface StyledProps {
-  montez: boolean;
+  styledFont: boolean;
 }
 
 function NavigationLink({to, content, onClick}: Props) {
   const solonaMontez = to === '/';
 
   return (
-    <NavigationListItem montez={solonaMontez}>
+    <NavigationListItem styledFont={solonaMontez}>
       <NavLink to={to} exact={true} onClick={onClick}>
         {content}
       </NavLink>
@@ -64,10 +64,10 @@ const NavigationListItem = styled.li<StyledProps>`
   a:link,
   a:visited {
     color: ${COLORS.White};
-    ${(props) => (props.montez ? `font-size: 1.7rem` : `font-size: 1rem`)};
-    ${(props) => props.montez && `font-family: 'Montez'`};
+    ${(props) => (props.styledFont ? `font-size: 1.7rem` : `font-size: 1rem`)};
+    ${(props) => props.styledFont && `font-family: 'Montez'`};
     ${(props) =>
-      props.montez ? `padding-bottom: 0.4rem` : `padding-bottom: 0.88rem`};
+      props.styledFont ? `padding-bottom: 0.4rem` : `padding-bottom: 0.92rem`};
     text-decoration: none;
     margin-right: 4.5rem;
 
@@ -78,7 +78,7 @@ const NavigationListItem = styled.li<StyledProps>`
 
   a:hover {
     ${(props) =>
-      props.montez ? `color: ${COLORS.Blue}` : `color: ${COLORS.Orange}`};
+      props.styledFont ? `color: ${COLORS.Blue}` : `color: ${COLORS.Orange}`};
   }
 
   &:last-of-type {
@@ -92,11 +92,11 @@ const NavigationListItem = styled.li<StyledProps>`
   a.active:active,
   a.active:focus {
     ${(props) =>
-      props.montez
+      props.styledFont
         ? `border-bottom: none`
         : `border-bottom: 0.3rem solid ${COLORS.Orange}`};
     ${(props) =>
-      props.montez ? `color: ${COLORS.Blue}` : `color: ${COLORS.Orange}`};
+      props.styledFont ? `color: ${COLORS.Blue}` : `color: ${COLORS.Orange}`};
   }
 `;
 

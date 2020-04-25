@@ -1,50 +1,61 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
+import styled from 'styled-components';
 import {CSSTransition} from 'react-transition-group';
 import {TransitionDuration} from '../../utilities/types';
-import './FadeInScale.css';
 
 interface Props {
   duration?: TransitionDuration;
   children: React.ReactNode;
 }
 
-interface State {
-  fadeInScale: boolean;
+interface StyledProps {
+  styledDuration: TransitionDuration;
 }
 
-class FadeInScale extends React.Component<Props, State> {
-  constructor(props: Props) {
-    super(props);
-    this.state = {fadeInScale: false};
-  }
+function FadeInScale(props: Props) {
+  const [fadeInScale, setFadeInScale] = useState(false);
 
-  componentDidMount() {
-    this.setState({fadeInScale: true});
-  }
+  useEffect(() => {
+    setFadeInScale(true);
+  });
 
-  render() {
-    const {duration = TransitionDuration.Slow, children} = this.props;
-    const {fadeInScale} = this.state;
+  const {duration = TransitionDuration.Slow, children} = props;
 
-    const markup = <div key="key">{children}</div>;
-
-    const cssVariablesPrefix = '--FadeInScale-';
-    const cssVariables: React.CSSProperties = {
-      [`${cssVariablesPrefix}duration`]: `${duration}ms`,
-    };
-
-    return (
-      <div className="FadeInScaleWrapper" style={cssVariables}>
-        <CSSTransition
-          in={fadeInScale}
-          timeout={duration}
-          classNames="FadeInScale"
-        >
-          {markup}
-        </CSSTransition>
-      </div>
-    );
-  }
+  return (
+    <FadeInScaleWrapper>
+      <CSSTransition
+        in={fadeInScale}
+        appear={fadeInScale}
+        timeout={duration}
+        classNames="FadeInScale"
+      >
+        <FadeInScaleStyles styledDuration={duration}>
+          {children}
+        </FadeInScaleStyles>
+      </CSSTransition>
+    </FadeInScaleWrapper>
+  );
 }
+
+const FadeInScaleWrapper = styled.div``;
+
+const FadeInScaleStyles = styled.div<StyledProps>`
+  opacity: 0.01;
+  transform: scale(0.9);
+
+  &.FadeInScale-enter {
+    opacity: 0.01;
+    transform: scale(0.9);
+  }
+
+  &.FadeInScale-enter-done {
+    opacity: 1;
+    transform: scale(1);
+    transition: opacity
+        ${(props) => props.styledDuration && props.styledDuration}ms ease-in,
+      transform ${(props) => props.styledDuration && props.styledDuration}ms
+        ease-in;
+  }
+`;
 
 export default FadeInScale;
