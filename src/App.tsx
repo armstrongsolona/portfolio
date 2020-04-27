@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import {Route, HashRouter} from 'react-router-dom';
+import {Route, BrowserRouter as Router} from 'react-router-dom';
 import NavigationLink, {
   NavigationWrapper,
   NavigationList,
@@ -27,7 +27,7 @@ function App() {
 
   return (
     <AppStyles>
-      <HashRouter>
+      <Router>
         <>
           <NavigationWrapper aria-label="Main navigation">
             <NavigationDesktop>{navigationItems}</NavigationDesktop>
@@ -44,7 +44,7 @@ function App() {
             <Route exact path="/contact" component={Contact} />
           </MainWrapper>
         </>
-      </HashRouter>
+      </Router>
     </AppStyles>
   );
 }
