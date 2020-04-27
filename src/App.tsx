@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import styled from 'styled-components';
 import {Route, BrowserRouter as Router} from 'react-router-dom';
 import NavigationLink, {
@@ -15,13 +15,35 @@ import Contact from './pages/Contact/Contact';
 import HamburgerMenu from './components/HamburgerMenu/HamburgerMenu';
 
 function App() {
+  const [menuOpen, toggleMenuOpen] = useState(false);
+
   const navigationItems = (
     <NavigationList>
-      <NavigationLink to="/" content="Solona" />
-      <NavigationLink to="/about" content="About" />
-      <NavigationLink to="/skills" content="Skills" />
-      <NavigationLink to="/work-history" content="Work History" />
-      <NavigationLink to="/contact" content="Contact" />
+      <NavigationLink
+        to="/"
+        content="Solona"
+        onClick={() => toggleMenuOpen(!menuOpen)}
+      />
+      <NavigationLink
+        to="/about"
+        content="About"
+        onClick={() => toggleMenuOpen(!menuOpen)}
+      />
+      <NavigationLink
+        to="/skills"
+        content="Skills"
+        onClick={() => toggleMenuOpen(!menuOpen)}
+      />
+      <NavigationLink
+        to="/work-history"
+        content="Work History"
+        onClick={() => toggleMenuOpen(!menuOpen)}
+      />
+      <NavigationLink
+        to="/contact"
+        content="Contact"
+        onClick={() => toggleMenuOpen(!menuOpen)}
+      />
     </NavigationList>
   );
 
@@ -32,7 +54,12 @@ function App() {
           <NavigationWrapper aria-label="Main navigation">
             <NavigationDesktop>{navigationItems}</NavigationDesktop>
             <NavigationMobile>
-              <HamburgerMenu>{navigationItems}</HamburgerMenu>
+              <HamburgerMenu
+                open={menuOpen}
+                onClick={() => toggleMenuOpen(!menuOpen)}
+              >
+                {navigationItems}
+              </HamburgerMenu>
             </NavigationMobile>
           </NavigationWrapper>
 
