@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import {CSSTransition} from 'react-transition-group';
 import {TransitionDuration} from '../../utilities/types';
@@ -10,15 +10,17 @@ library.add(faBars);
 
 interface Props {
   children: React.ReactNode;
+  open: boolean;
+  onClick(): void;
 }
 
 function HamburgerMenu(props: Props) {
-  const {children} = props;
-  const [open, toggleOpen] = useState(false);
+  const {children, open, onClick} = props;
+  console.log('open', open);
 
   return (
     <HamburgerMenuStyles>
-      <ToggleMenu onClick={() => toggleOpen(!open)}>
+      <ToggleMenu onClick={onClick}>
         <FontAwesomeIcon icon={faBars} size="2x" color="#fff" />
       </ToggleMenu>
       <CSSTransition
@@ -36,7 +38,7 @@ function HamburgerMenu(props: Props) {
         classNames="Underlay"
         unmountOnExit
       >
-        <MenuUnderlay onClick={() => toggleOpen(!open)} />
+        <MenuUnderlay onClick={onClick} />
       </CSSTransition>
     </HamburgerMenuStyles>
   );
@@ -52,8 +54,8 @@ const ToggleMenu = styled.button`
   padding: 0;
   margin: 0;
   position: absolute;
-  left: 20px;
-  top: 12px;
+  left: 1.25rem;
+  top: 1.25rem;
   z-index: 998;
 `;
 
