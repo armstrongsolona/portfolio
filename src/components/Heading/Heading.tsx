@@ -10,6 +10,7 @@ interface Props {
   element: HeadingElement;
   extraSpace?: boolean;
   font?: Font;
+  size?: string;
   children: string;
 }
 
@@ -18,9 +19,17 @@ interface StyledProps {
   styledExtraSpace: boolean;
   styledFontFamily: string;
   styledFontWeight: string;
+  styledFontSize: string | null;
 }
 
-function Heading({color, element, extraSpace = false, font, children}: Props) {
+function Heading({
+  color,
+  element,
+  extraSpace = false,
+  font,
+  size,
+  children,
+}: Props) {
   let headingColor;
 
   switch (color) {
@@ -64,12 +73,15 @@ function Heading({color, element, extraSpace = false, font, children}: Props) {
       HeadingElement = Heading4;
   }
 
+  const styledFontSize = size ? size : null;
+
   return (
     <HeadingElement
       styledColor={headingColor}
       styledExtraSpace={extraSpace}
       styledFontFamily={headingFontFamily}
       styledFontWeight={headingFontWeight}
+      styledFontSize={styledFontSize}
     >
       {children}
     </HeadingElement>
@@ -77,7 +89,8 @@ function Heading({color, element, extraSpace = false, font, children}: Props) {
 }
 
 const Heading1 = styled.h1<StyledProps>`
-  font-size: 8rem;
+  font-size: ${(props) =>
+    props.styledFontSize ? props.styledFontSize : `8rem`};
   margin-bottom: 0.5rem;
   ${(props) => props.styledColor && `color: ${props.styledColor}`};
   ${(props) =>
@@ -89,7 +102,8 @@ const Heading1 = styled.h1<StyledProps>`
 `;
 
 const Heading2 = styled.h2<StyledProps>`
-  font-size: 2rem;
+  font-size: ${(props) =>
+    props.styledFontSize ? props.styledFontSize : `2rem`};
   margin-bottom: 0.5rem;
   ${(props) => props.styledColor && `color: ${props.styledColor}`};
   ${(props) =>
@@ -100,7 +114,8 @@ const Heading2 = styled.h2<StyledProps>`
 `;
 
 const Heading3 = styled.h3<StyledProps>`
-  font-size: 1.5rem;
+  font-size: ${(props) =>
+    props.styledFontSize ? props.styledFontSize : `1.5rem`};
   margin-bottom: 0.5rem;
   ${(props) => props.styledColor && `color: ${props.styledColor}`};
   ${(props) =>
@@ -111,7 +126,8 @@ const Heading3 = styled.h3<StyledProps>`
 `;
 
 const Heading4 = styled.h4<StyledProps>`
-  font-size: 1.4rem;
+  font-size: ${(props) =>
+    props.styledFontSize ? props.styledFontSize : `1.4rem`};
   margin-bottom: 0.5rem;
   ${(props) => props.styledColor && `color: ${props.styledColor}`};
   ${(props) =>
@@ -122,7 +138,8 @@ const Heading4 = styled.h4<StyledProps>`
 `;
 
 const Heading5 = styled.h5<StyledProps>`
-  font-size: 1.1rem;
+  font-size: ${(props) =>
+    props.styledFontSize ? props.styledFontSize : `1.1rem`};
   margin-bottom: 0.5rem;
   ${(props) => props.styledColor && `color: ${props.styledColor}`};
   ${(props) =>

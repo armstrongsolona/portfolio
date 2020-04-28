@@ -47,7 +47,7 @@ function Contact() {
                     href="/files/SolonaArmstrong-FrontEnd-Resume.pdf"
                     target="_blank"
                   >
-                    &nbsp; Download my resume
+                    &nbsp; Download my résumé
                   </a>
                 </Flex>
                 <Flex alignItems="center" justifyContent="flex-start">
@@ -123,7 +123,7 @@ function Contact() {
             <FadeIn duration={TransitionDuration.Quick}>
               <Image
                 src="/images/backgrounds/undraw_react_y7wq.svg"
-                alt=""
+                alt="Illustration of a woman sitting on a React logos"
                 size={ImageSize.Large}
               />
             </FadeIn>
@@ -141,7 +141,7 @@ const ContactWrapper = styled.section`
   height: calc(100vh + 1px);
   display: flex;
   align-items: flex-end;
-  align-content: flex-end;
+  align-content: flex-start;
   justify-content: center;
 `;
 
