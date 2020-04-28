@@ -12,6 +12,7 @@ import About from './pages/About/About';
 import Skills from './pages/Skills/Skills';
 import WorkHistory from './pages/WorkHistory/WorkHistory';
 import Contact from './pages/Contact/Contact';
+import NotFound from './pages/NotFound/NotFound';
 import HamburgerMenu from './components/HamburgerMenu/HamburgerMenu';
 
 function App() {
@@ -69,6 +70,7 @@ function App() {
             <Route exact path="/skills" component={Skills} />
             <Route exact path="/work-history" component={WorkHistory} />
             <Route exact path="/contact" component={Contact} />
+            <Route component={NotFound} />
           </MainWrapper>
         </>
       </Router>
