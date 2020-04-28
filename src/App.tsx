@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import styled from 'styled-components';
-import {Route, BrowserRouter as Router} from 'react-router-dom';
+import {Route, BrowserRouter as Router, Switch} from 'react-router-dom';
 import NavigationLink, {
   NavigationWrapper,
   NavigationList,
@@ -65,12 +65,14 @@ function App() {
           </NavigationWrapper>
 
           <MainWrapper>
-            <Route exact path="/" component={Home} />
-            <Route exact path="/about" component={About} />
-            <Route exact path="/skills" component={Skills} />
-            <Route exact path="/work-history" component={WorkHistory} />
-            <Route exact path="/contact" component={Contact} />
-            <Route component={NotFound} />
+            <Switch>
+              <Route exact path="/" component={Home} />
+              <Route exact path="/about" component={About} />
+              <Route exact path="/skills" component={Skills} />
+              <Route exact path="/work-history" component={WorkHistory} />
+              <Route exact path="/contact" component={Contact} />
+              <Route path="*" component={NotFound} />
+            </Switch>
           </MainWrapper>
         </>
       </Router>
