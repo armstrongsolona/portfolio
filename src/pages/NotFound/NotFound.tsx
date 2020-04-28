@@ -43,7 +43,7 @@ function NotFound() {
                 <a href="/files/SolonaArmstrong-Portfolio.pdf" target="_blank">
                   portfolio
                 </a>{' '}
-                to see what I <em>have</em> built.
+                to see what I have built.
               </Paragraph>
             </FadeIn>
           </NotFoundContentLeft>
