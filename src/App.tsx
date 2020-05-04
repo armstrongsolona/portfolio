@@ -71,7 +71,7 @@ function App() {
               <Route exact path="/skills" component={Skills} />
               <Route exact path="/work-history" component={WorkHistory} />
               <Route exact path="/contact" component={Contact} />
-              <Route path="*" component={NotFound} />
+              <Route path="/404" component={NotFound} />
             </Switch>
           </MainWrapper>
         </>
