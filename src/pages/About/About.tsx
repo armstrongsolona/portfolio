@@ -55,6 +55,9 @@ function About() {
         <Heading color={Color.Black} element="h2" font={Font.Regular}>
           Frontend Developer
         </Heading>
+        <Heading color={Color.Black} element="h3" font={Font.Regular}>
+          Specializing in Accessibility &amp; UX
+        </Heading>
 
         <br />
         <br />
@@ -79,7 +82,7 @@ function About() {
           along with the industry and I now specialize in frontend development.
         </Paragraph>
 
-        <Heading element="h3" extraSpace>
+        <Heading element="h4" extraSpace>
           As a developer
         </Heading>
         <Paragraph
@@ -87,10 +90,11 @@ function About() {
           textSize={ParagraphTextSize.Medium}
           extraSpace
         >
-          I'm kind of obsessed with good UX, not only in my career, but in my
-          everyday life, as well. I often think{' '}
-          <em>if I designed the world...</em> because when I build something, I
-          want it to enhance a user's life instead of adding frustration to it.
+          I'm kind of obsessed with amazing UX, not only in my career, but in my
+          everyday life, as well. When I build something, I
+          want it to solve a pain point (instead of creating one). 
+          I also have a passion for accessibility because I believe everyone should
+          have a great experience using an app, no matter their abilities.
         </Paragraph>
 
         <Paragraph
@@ -98,28 +102,23 @@ function About() {
           textSize={ParagraphTextSize.Medium}
           extraSpace
         >
-          I'm meticulous about detail. I'm fastidious both about high quality
-          code and pixel-perfection on screen. At the same time, I ship quickly
-          and refactor later, if needed.
-        </Paragraph>
-
-        <Paragraph
-          width={ParagraphWidth.Full}
-          textSize={ParagraphTextSize.Medium}
-          extraSpace
-        >
-          Two words: clean code. Sure, it's great to build something amazing,
-          but consistent, readable code is also important to me.
-        </Paragraph>
-
-        <Paragraph
-          width={ParagraphWidth.Full}
-          textSize={ParagraphTextSize.Medium}
-          extraSpace
-        >
+          I'm meticulous about detail. I write clean code and follow designs to pixel-perfection.
+          At the same time, I ship quickly and refactor later, if needed.
           With my background in design, I work well with a design team to
-          develop features that solve user pain points, while communicating what
-          is and isn't possible with code.
+          develop features, while communicating what is and isn't possible with code.
+        </Paragraph>
+
+        <Heading element="h4" extraSpace>
+          As a colleague
+        </Heading>
+        <Paragraph
+          width={ParagraphWidth.Full}
+          textSize={ParagraphTextSize.Medium}
+          extraSpace
+        >
+          Previous colleagues have often told me how much they love my enthusiasm. I'm a team
+          player who believes the end product is most important. 
+          I like to be useful and will always go the extra mile to help someone.
         </Paragraph>
 
         <Paragraph
@@ -127,12 +126,13 @@ function About() {
           textSize={ParagraphTextSize.Medium}
           extraSpace
         >
-          I place importance on accessibility because I believe everyone should
-          have a great experience when using an app, regardless of their
-          abilities.
+          I have excellent communication skills. I have studied and taught
+          empathic communication for {yearsSinceNVC} years. I've taken
+          leadership and business communication workshops because good
+          connection with people is so important to me.
         </Paragraph>
 
-        <Heading element="h3" extraSpace>
+        <Heading element="h4" extraSpace>
           As a person
         </Heading>
         <Paragraph
@@ -141,7 +141,7 @@ function About() {
           extraSpace
         >
           If I had to choose only one word to describe myself, it would be{' '}
-          <a href="https://www.youtube.com/watch?v=GQHGJjsbz5c" target="_blank">
+          <a href="https://www.youtube.com/watch?v=GQHGJjsbz5c" target="_blank" title="(opens new window)">
             resourceful
           </a>
           . I pull from my breadth of experience to find creative ways to solve
@@ -157,6 +157,7 @@ function About() {
           <a
             href="https://www.hellotalent.com/blog/t-shaped-person-hire/"
             target="_blank"
+            title="(opens new window)"
           >
             T-shaped
           </a>
@@ -170,22 +171,7 @@ function About() {
           textSize={ParagraphTextSize.Medium}
           extraSpace
         >
-          I take after my grandfather: the master of organization. My brain
-          naturally creates systems out of chaos.
-        </Paragraph>
-
-        <Heading element="h3" extraSpace>
-          As a colleague
-        </Heading>
-        <Paragraph
-          width={ParagraphWidth.Full}
-          textSize={ParagraphTextSize.Medium}
-          extraSpace
-        >
-          Coworkers often tell me how much they love my enthusiasm. I'm a team
-          player who believes the end product is more important than my
-          individual ego. I like to be useful and will always go the extra mile
-          to help someone.
+          I come from a family of organizers. My brain naturally creates systems out of chaos.
         </Paragraph>
 
         <Paragraph
@@ -193,18 +179,7 @@ function About() {
           textSize={ParagraphTextSize.Medium}
           extraSpace
         >
-          My communication skills are excellent. I have studied and taught
-          empathic communication for {yearsSinceNVC} years. I've taken
-          leadership and business communication workshops because good
-          connection with people is so important to me.
-        </Paragraph>
-
-        <Paragraph
-          width={ParagraphWidth.Full}
-          textSize={ParagraphTextSize.Medium}
-          extraSpace
-        >
-          Be warned: I make shameless puns and laugh at my own jokes.
+          I make shameless puns and laugh at my own jokes.
         </Paragraph>
       </FadeIn>
     </AboutStyles>

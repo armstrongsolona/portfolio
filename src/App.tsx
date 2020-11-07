@@ -7,6 +7,7 @@ import NavigationLink, {
   NavigationDesktop,
   NavigationMobile,
 } from './components/NavigationLink/NavigationLink';
+import SkipLink from './components/SkipLink/SkipLink';
 import Home from './pages/Home/Home';
 import About from './pages/About/About';
 import Skills from './pages/Skills/Skills';
@@ -53,6 +54,10 @@ function App() {
       <Router>
         <>
           <NavigationWrapper aria-label="Main navigation">
+            <SkipLink
+                to="#Main"
+                content="Skip to main content"
+              />
             <NavigationDesktop>{navigationItems}</NavigationDesktop>
             <NavigationMobile>
               <HamburgerMenu
@@ -65,6 +70,7 @@ function App() {
           </NavigationWrapper>
 
           <MainWrapper>
+            <div id="Main" tabIndex={-1}></div>
             <Switch>
               <Route exact path="/" component={Home} />
               <Route exact path="/about" component={About} />
