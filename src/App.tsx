@@ -16,6 +16,10 @@ import Contact from './pages/Contact/Contact';
 import NotFound from './pages/NotFound/NotFound';
 import HamburgerMenu from './components/HamburgerMenu/HamburgerMenu';
 
+interface StyledProps {
+  styledMenuOpen: boolean;
+}
+
 function App() {
   const [menuOpen, toggleMenuOpen] = useState(false);
 
@@ -50,7 +54,7 @@ function App() {
   );
 
   return (
-    <AppStyles>
+    <AppStyles styledMenuOpen={menuOpen}>
       <Router>
         <>
           <NavigationWrapper aria-label="Main navigation">
@@ -86,7 +90,9 @@ function App() {
   );
 }
 
-const AppStyles = styled.div``;
+const AppStyles = styled.div<StyledProps>`
+${(props) => props.styledMenuOpen && `position: fixed`};
+`;
 const MainWrapper = styled.main`
   position: relative;
   z-index: 100;

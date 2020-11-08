@@ -42,11 +42,6 @@ function Home() {
             </NavLink>
           </FadeIn>
         </HomeOverlayGo>
-        <HomeOverlayCredit>
-          <FadeIn duration={TransitionDuration.Slowest}>
-            &copy; Photo by Solona Armstrong - Jemez Springs, New Mexico
-          </FadeIn>
-        </HomeOverlayCredit>
       </HomeBackground>
     </HomeWrapper>
   );
@@ -58,7 +53,7 @@ const HomeWrapper = styled.section`
   background: url('/images/backgrounds/JemezSpringsNM.jpg');
   background-size: cover;
   display: flex;
-  align-items: flex-end;
+  align-items: center;
   align-content: flex-end;
   justify-content: center;
 `;
@@ -67,19 +62,18 @@ const HomeBackground = styled.div`
   width: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: flex-end;
+  justify-content: center;
   align-items: flex-end;
 `;
 
 const HomeOverlay = styled.div`
-  height: 26rem;
   font-family: Kalam;
   margin: 0 auto;
   color: ${COLORS.White};
   text-shadow: 1px 2px 4px ${COLORS.Black};
 
   @media screen and (max-width: 699px) {
-    font-size: 1.8rem;
+    font-size: 1rem;
     text-align: center;
     width: 80%;
   }
@@ -112,14 +106,7 @@ const HomeOverlayQuote = styled.span`
 `;
 
 const HomeOverlayGo = styled.div`
-  height: 12rem;
   align-self: center;
-`;
-
-const HomeOverlayCredit = styled.div`
-  font-size: 0.7rem;
-  color: ${COLORS.White};
-  padding: 1rem;
 `;
 
 const HomeOverlayMajorEmphasis = styled.span`
@@ -128,7 +115,11 @@ const HomeOverlayMajorEmphasis = styled.span`
   text-transform: uppercase;
   color: ${COLORS.Blue};
 
-  @media screen and (max-width: 699px) {
+  @media screen and (max-width: 319px) {
+    font-size: 2rem;
+  }
+
+  @media screen and (min-width: 320px) and (max-width: 699px) {
     font-size: 2.5rem;
     letter-spacing: 0.2rem;
   }
