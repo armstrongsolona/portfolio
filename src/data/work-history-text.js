@@ -1,18 +1,20 @@
 const workHistoryText = {
   levelAccess: {
-    current: true,
+    current: false,
     companyName: 'Level Access',
-    dates: 'Mar 2020 - Present',
+    dates: 'Mar 2020 - Nov 2020',
     image: 'LevelAccess.png',
     companyDescription: 'Create an inclusive digital world for all.',
     companySize: '51 to 200 employees',
     role: 'Lead Frontend Developer',
-    tech: ['React', 'JavaScript', 'Selenium'],
+    tech: ['React', 'React Testing Library', 'Knockout.js', '.NET', 'jQuery', 'TypeScript', 'Selenium'],
     tasks: [
-      'Currently fixing 200 issues to bring a React app up to WCAG standards',
-      'Ensuring Selenium tests continue to pass',
+      'Fixed 200 issues to bring a recruiting app up to WCAG standards',
+      'Ensured Selenium tests continue to pass',
+      'Wrote a React TrapFocus component to trap focus in modal dialogs',
+      'Made a datepicker component accessible',
     ],
-    shipped: ['An ADA-compliant React app'],
+    shipped: ['A WCAG 2.0 compliant app'],
   },
   xapo: {
     current: false,
