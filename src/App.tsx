@@ -22,7 +22,6 @@ interface StyledProps {
 
 function App() {
   const [menuOpen, toggleMenuOpen] = useState(false);
-  console.log('menuOpen', menuOpen);
 
   const navigationItems = (
     <NavigationList>
