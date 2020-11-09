@@ -22,6 +22,7 @@ interface StyledProps {
 
 function App() {
   const [menuOpen, toggleMenuOpen] = useState(false);
+  console.log('menuOpen', menuOpen);
 
   const navigationItems = (
     <NavigationList>
@@ -91,7 +92,7 @@ function App() {
 }
 
 const AppStyles = styled.div<StyledProps>`
-${(props) => props.styledMenuOpen && `position: fixed`};
+${(props) => props.styledMenuOpen ? `position: fixed` : `position: relative`};
 `;
 const MainWrapper = styled.main`
   position: relative;
