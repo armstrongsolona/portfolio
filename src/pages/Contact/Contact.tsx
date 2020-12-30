@@ -135,9 +135,9 @@ function Contact() {
 }
 
 const ContactWrapper = styled.section`
+  margin: 10rem auto 6rem auto;
   width: 80%;
   max-width: 50rem;
-  margin: 0 auto;
   height: calc(100vh + 1px);
   display: flex;
   align-items: flex-end;
